@@ -1,0 +1,38 @@
+﻿@model List<PhongTIS.Models.Question>
+
+
+    @using (Html.BeginForm("DetailExam", "Exam", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="exam-online" id="exams">
+            
+            @foreach (var i in Model)
+            {
+                var id = i.order;
+                <div class="question ">
+
+                    @if (i.img == null)
+                    {
+                        <span class="number">Question @Html.Raw(id): </span>
+                        @i.name_question
+                    }
+                    else
+                    {
+                        <img src="~/Images/@i.img" class="img-fluid">
+                    }
+                </div>
+                <div class="answers my-3">
+                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_one" onchange="getSelectedRadio()">
+                    <label for="select-ans">@i.answer_one</label><br>
+                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_two" onchange="getSelectedRadio()">
+                    <label for="select-ans">@i.answer_two</label><br>
+                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_three" onchange="getSelectedRadio()">
+                    <label for="select-ans">@i.answer_three</label><br>
+                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_four" onchange="getSelectedRadio()">
+                    <label for="select-ans">@i.answer_four</label>
+                </div>
+            }
+            <input type="submit" value="Submit" class="btn btn-default" />
+            <a href="#" class="next">Next Page &raquo;</a>
+        </div>
+    }

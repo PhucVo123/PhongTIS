@@ -1,0 +1,168 @@
+﻿@model PhongTIS.Models.Cours
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section _header
+{
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/check-o.css' rel='stylesheet'>
+    @Styles.Render("~/Content/css/course.css")
+}
+<div class="wrapper">
+    <div class="title">
+        CÁC KHÓA HỌC TẠI PHONG TIS
+    </div>
+    <div class="tabs_wrap">
+        <ul>
+            <li data-tabs="toeic" class="active course_item">TOEIC 600+</li>
+            <li data-tabs="giao_tiep" class="course_item">Giao Tiếp</li>
+            <li data-tabs="ielts" class=" course_item">IELTS</li>
+        </ul>
+    </div>
+    <div class="container">
+        <ul>
+            <li class="item_wrap toeic">
+                <div class="item">
+                    <div class="item_left w3-animate-left">
+                        <h1 class="title_course">Bạn nhận được gì sau khi hoàn thành khóa học <span class="title_course_hero">TOEIC 600+</span></h1>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course ">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <button class="button">Đăng ký ngay</button>
+                        </div>
+                    </div>
+                    <div class="item_right w3-animate-opacity">
+                        <img class="img_toeic" src="https://vus.edu.vn/chuong-trinh-hoc/wp-content/uploads/2023/04/student.webp" alt="">
+                    </div>
+                </div>
+            </li>
+            <li class="item_wrap giao_tiep">
+                <div class="item">
+                    <div class="item_left w3-animate-left">
+                        <h1 class="title_course">Bạn nhận được gì sau khi hoàn thành khóa học <span class="title_course_hero">GIAO TIẾP</span></h1>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <button class="button">Đăng ký ngay</button>
+                        </div>
+                    </div>
+                    <div class="item_right w3-animate-opacity">
+                        <img src="https://vus.edu.vn/chuong-trinh-hoc/wp-content/uploads/2023/05/student-3.webp" alt="">
+                    </div>
+                </div>
+            </li>
+            <li class="item_wrap ielts offline">
+                <div class="item">
+                    <div class="item_left w3-animate-left">
+                        <h1 class="title_course">Bạn nhận được gì sau khi hoàn thành khóa học <span class="title_course_hero">IELTS</span></h1>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <span class="icon">
+                                <i class="gg-check-o"></i>
+                            </span>
+                            <span class="desc_course">Mô tả khóa học</span>
+                        </div>
+                        <div class="data">
+                            <button class="button">Đăng ký ngay</button>
+                        </div>
+                    </div>
+                    <div class="item_right w3-animate-opacity">
+                        <img src="https://vus.edu.vn/chuong-trinh-hoc/wp-content/uploads/2023/05/student-4.webp" alt="">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+@section _footer
+{
+    <script>
+        var tabs = document.querySelectorAll(".tabs_wrap ul li");
+        var toeics = document.querySelectorAll(".toeic");
+        var gtiep = document.querySelectorAll(".giao_tiep");
+        var ielts = document.querySelectorAll(".ielts");
+        var all = document.querySelectorAll(".item_wrap");
+        all.forEach((item) => {
+            item.style.display = "none";
+        })
+        toeics.forEach((toeic) => {
+            toeic.style.display = "block";
+        })
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                tabs.forEach((tab) => {
+                    tab.classList.remove("active");
+                })
+                tab.classList.add("active");
+                var tabval = tab.getAttribute("data-tabs");
+
+                all.forEach((item) => {
+                    item.style.display = "none";
+                })
+
+                if (tabval == "toeic") {
+                    toeics.forEach((toeic) => {
+                        toeic.style.display = "block";
+                    })
+                }
+                else if (tabval == "giao_tiep") {
+                    gtiep.forEach((giao_tiep) => {
+                        giao_tiep.style.display = "block";
+                    })
+                }
+                else if (tabval == "ielts") {
+                    ielts.forEach((ielt) => {
+                        ielt.style.display = "block";
+                    })
+                }
+
+            })
+        })
+    </script>
+
+}
+

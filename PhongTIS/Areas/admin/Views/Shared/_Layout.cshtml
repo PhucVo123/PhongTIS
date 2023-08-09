@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Areas/admin/Data/css/style.css")
+    @Styles.Render("~/Areas/admin/Data/lib/owlcarousel/assets/owl.carousel.min.css")
+    @Styles.Render("~/Areas/admin/Data/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css")
+    @Styles.Render("~/Areas/admin/Data/scss/bootstrap.scss")
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("_header", false)
+</head>
+<body>
+    @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <div class="sidebar  pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ADMIN</h3>
+                </a>
+                <div class="d-flex ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="https://studentinfo.tdtu.edu.vn/Home/GetImage?mssv=52000854" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Võ Huy Phúc</h6>
+                        <span>Admin</span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+
+                    <a href="@Url.Action("Index", "Menus")" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quản lý Menu</a>
+                    <a href="@Url.Action("Index", "Students")" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quản lý học viên</a>
+                    <a href="@Url.Action("Index", "ScoreStudents")" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quản lý điểm</a>
+                    <a href="@Url.Action("Index", "Exercises")" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quản lý bài tập</a>
+                    <a href="@Url.Action("Index", "AboutUs")" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Quản lý gioi thieu</a>
+                    @*<a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                        <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                        <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+                        <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>*@
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+        <div class="content ">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle" src="https://studentinfo.tdtu.edu.vn/Home/GetImage?mssv=52000854" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Vo Huy Phuc</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            @Html.ActionLink("Log Out", "Logout", "Login", new object { }, new { @class = "dropdown-item" });
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    @Scripts.Render("~/Areas/admin/Data/lib/chart/chart.min.js")
+    @Scripts.Render("~/Areas/admin/Data/lib/easing/easing.min.js")
+    @Scripts.Render("~/Areas/admin/Data/lib/waypoints/waypoints.min.js")
+    @Scripts.Render("~/Areas/admin/Data/lib/owlcarousel/owl.carousel.min.js")
+    @Scripts.Render("~/Areas/admin/Data/lib/tempusdominus/js/moment.min.js")
+    @Scripts.Render("~/Areas/admin/Data/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")
+    @Scripts.Render("~/Areas/admin/Data/js/main.js")
+    <script src="https://cdn.tiny.cloud/1/1tnt18keheome3oikt9eb37j18o7n0b5hzeexxd4rhrakzmx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
+    @RenderSection("_footer", false)
+</body>
+</html>

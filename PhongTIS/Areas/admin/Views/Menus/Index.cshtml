@@ -1,0 +1,59 @@
+﻿@model List<PhongTIS.Models.Menu>
+
+@using PhongTIS.Help;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row g-4">
+    <div class="col-sm-12 col-xl-12 col-md-12">
+        <div class="bg-light rounded h-100 p-4">
+            <h3 class="mb-4">Quản lý Menu</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Thành phần trên Menu
+                        </th>
+                        <th>
+                            Ẩn/Hiện
+                        </th>
+                        <th>
+                            Vị trí
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{var Number = 1; }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.Raw(Number++)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nameItem)
+                            </td>
+                            <td>
+                                @(item.hide == true ? "Hiển thị" : "Ẩn")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.order)
+                            </td>
+                            <td>
+                                @Html.NoEncodeActionLink("<span class='fa fa-wrench'></span>", "Edit", "Edit", "menus", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-secondary" })
+                                @Html.NoEncodeActionLink("<span class='fa fa-trash'></span>", "Delete", "Delete", "menus", routeValues: new { id = item.id }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

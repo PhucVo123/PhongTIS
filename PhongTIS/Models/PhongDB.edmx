@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PhongTISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+          <Property Name="descAbout_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="descAbout_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="descAbout_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="descAbout_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="descAbout_5" Type="nvarchar" MaxLength="50" />
+          <Property Name="img" Type="nvarchar(max)" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameCourse" Type="nvarchar" MaxLength="50" />
+          <Property Name="descriptCourse" Type="nvarchar" MaxLength="100" />
+          <Property Name="detailCourse_1" Type="nvarchar" MaxLength="100" />
+          <Property Name="detailCourse_2" Type="nvarchar" MaxLength="100" />
+          <Property Name="detailCourse_3" Type="nvarchar" MaxLength="100" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="test" Type="nvarchar" MaxLength="10" />
+          <Property Name="part" Type="varchar" MaxLength="15" />
+          <Property Name="timer" Type="varchar" MaxLength="10" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+          <Property Name="audio" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameItem" Type="nvarchar" MaxLength="50" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name_question" Type="nvarchar(max)" />
+          <Property Name="answer_one" Type="nvarchar" MaxLength="20" />
+          <Property Name="answer_two" Type="nvarchar" MaxLength="20" />
+          <Property Name="answer_three" Type="nvarchar" MaxLength="20" />
+          <Property Name="answer_four" Type="nvarchar" MaxLength="20" />
+          <Property Name="correct_answer" Type="nvarchar" MaxLength="20" />
+          <Property Name="ExerciseID" Type="int" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+          <Property Name="img" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ScoreStudent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="IDName" Type="int" />
+          <Property Name="scoreTest" Type="nvarchar" MaxLength="15" />
+          <Property Name="IDTest" Type="int" />
+          <Property Name="meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hide" Type="bit" />
+          <Property Name="order" Type="int" />
+          <Property Name="datebegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="pwd" Type="varchar" MaxLength="50" />
+          <Property Name="idSubject" Type="int" />
+        </EntityType>
+        <Association Name="FK__Exercise__Catego__73BA3083">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__Exerci__76969D2E">
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="0..1" />
+          <End Role="Question" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="ExerciseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ScoreStud__IDNam__1332DBDC">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="ScoreStudent" Type="Self.ScoreStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ScoreStudent">
+              <PropertyRef Name="IDName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ScoreStud__IDTes__14270015">
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="0..1" />
+          <End Role="ScoreStudent" Type="Self.ScoreStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ScoreStudent">
+              <PropertyRef Name="IDTest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__idSubje__10566F31">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="idSubject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PhongTISModelStoreContainer">
+          <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoreStudent" EntityType="Self.ScoreStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Exercise__Catego__73BA3083" Association="Self.FK__Exercise__Catego__73BA3083">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Exercise" EntitySet="Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__Exerci__76969D2E" Association="Self.FK__Question__Exerci__76969D2E">
+            <End Role="Exercise" EntitySet="Exercise" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ScoreStud__IDNam__1332DBDC" Association="Self.FK__ScoreStud__IDNam__1332DBDC">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="ScoreStudent" EntitySet="ScoreStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ScoreStud__IDTes__14270015" Association="Self.FK__ScoreStud__IDTes__14270015">
+            <End Role="Exercise" EntitySet="Exercise" />
+            <End Role="ScoreStudent" EntitySet="ScoreStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__idSubje__10566F31" Association="Self.FK__Student__idSubje__10566F31">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PhongTISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PhongTISDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="PhongTISModel.Category" />
+          <EntitySet Name="Courses" EntityType="PhongTISModel.Cours" />
+          <EntitySet Name="Menus" EntityType="PhongTISModel.Menu" />
+          <EntitySet Name="ScoreStudents" EntityType="PhongTISModel.ScoreStudent" />
+          <EntitySet Name="Students" EntityType="PhongTISModel.Student" />
+          <AssociationSet Name="FK__Student__idSubje__10566F31" Association="PhongTISModel.FK__Student__idSubje__10566F31">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ScoreStud__IDNam__1332DBDC" Association="PhongTISModel.FK__ScoreStud__IDNam__1332DBDC">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="ScoreStudent" EntitySet="ScoreStudents" />
+          </AssociationSet>
+          <EntitySet Name="Exercises" EntityType="PhongTISModel.Exercise" />
+          <EntitySet Name="Questions" EntityType="PhongTISModel.Question" />
+          <AssociationSet Name="FK__Exercise__Catego__73BA3083" Association="PhongTISModel.FK__Exercise__Catego__73BA3083">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Exercise" EntitySet="Exercises" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Question__Exerci__76969D2E" Association="PhongTISModel.FK__Question__Exerci__76969D2E">
+            <End Role="Exercise" EntitySet="Exercises" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ScoreStud__IDTes__14270015" Association="PhongTISModel.FK__ScoreStud__IDTes__14270015">
+            <End Role="Exercise" EntitySet="Exercises" />
+            <End Role="ScoreStudent" EntitySet="ScoreStudents" />
+          </AssociationSet>
+          <EntitySet Name="AboutUs1" EntityType="PhongTISModel.AboutUs" />
+          </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Students" Relationship="PhongTISModel.FK__Student__idSubje__10566F31" FromRole="Category" ToRole="Student" />
+          <NavigationProperty Name="Exercises" Relationship="PhongTISModel.FK__Exercise__Catego__73BA3083" FromRole="Category" ToRole="Exercise" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameCourse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descriptCourse" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="detailCourse_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="detailCourse_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="detailCourse_3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameItem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="ScoreStudent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="IDName" Type="Int32" />
+          <Property Name="scoreTest" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IDTest" Type="Int32" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Student" Relationship="PhongTISModel.FK__ScoreStud__IDNam__1332DBDC" FromRole="ScoreStudent" ToRole="Student" />
+          <NavigationProperty Name="Exercise" Relationship="PhongTISModel.FK__ScoreStud__IDTes__14270015" FromRole="ScoreStudent" ToRole="Exercise" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idSubject" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="PhongTISModel.FK__Student__idSubje__10566F31" FromRole="Student" ToRole="Category" />
+          <NavigationProperty Name="ScoreStudents" Relationship="PhongTISModel.FK__ScoreStud__IDNam__1332DBDC" FromRole="Student" ToRole="ScoreStudent" />
+        </EntityType>
+        <Association Name="FK__Student__idSubje__10566F31">
+          <End Type="PhongTISModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="PhongTISModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="idSubject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ScoreStud__IDNam__1332DBDC">
+          <End Type="PhongTISModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="PhongTISModel.ScoreStudent" Role="ScoreStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ScoreStudent">
+              <PropertyRef Name="IDName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="test" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="part" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="timer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <Property Name="audio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="PhongTISModel.FK__Exercise__Catego__73BA3083" FromRole="Exercise" ToRole="Category" />
+          <NavigationProperty Name="Questions" Relationship="PhongTISModel.FK__Question__Exerci__76969D2E" FromRole="Exercise" ToRole="Question" />
+          <NavigationProperty Name="ScoreStudents" Relationship="PhongTISModel.FK__ScoreStud__IDTes__14270015" FromRole="Exercise" ToRole="ScoreStudent" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name_question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="answer_one" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="answer_two" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="answer_three" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="answer_four" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="correct_answer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ExerciseID" Type="Int32" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Exercise" Relationship="PhongTISModel.FK__Question__Exerci__76969D2E" FromRole="Question" ToRole="Exercise" />
+        </EntityType>
+        <Association Name="FK__Exercise__Catego__73BA3083">
+          <End Type="PhongTISModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="PhongTISModel.Exercise" Role="Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Question__Exerci__76969D2E">
+          <End Type="PhongTISModel.Exercise" Role="Exercise" Multiplicity="0..1" />
+          <End Type="PhongTISModel.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="ExerciseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ScoreStud__IDTes__14270015">
+          <End Type="PhongTISModel.Exercise" Role="Exercise" Multiplicity="0..1" />
+          <End Type="PhongTISModel.ScoreStudent" Role="ScoreStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ScoreStudent">
+              <PropertyRef Name="IDTest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descAbout_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descAbout_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descAbout_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descAbout_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descAbout_5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hide" Type="Boolean" />
+          <Property Name="order" Type="Int32" />
+          <Property Name="datebegin" Type="DateTime" Precision="0" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PhongTISModelStoreContainer" CdmEntityContainer="PhongTISDB">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="PhongTISModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="nameCategory" ColumnName="nameCategory" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="PhongTISModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="detailCourse_3" ColumnName="detailCourse_3" />
+                <ScalarProperty Name="detailCourse_2" ColumnName="detailCourse_2" />
+                <ScalarProperty Name="detailCourse_1" ColumnName="detailCourse_1" />
+                <ScalarProperty Name="descriptCourse" ColumnName="descriptCourse" />
+                <ScalarProperty Name="nameCourse" ColumnName="nameCourse" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="PhongTISModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="nameItem" ColumnName="nameItem" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoreStudents">
+            <EntityTypeMapping TypeName="PhongTISModel.ScoreStudent">
+              <MappingFragment StoreEntitySet="ScoreStudent">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="IDTest" ColumnName="IDTest" />
+                <ScalarProperty Name="scoreTest" ColumnName="scoreTest" />
+                <ScalarProperty Name="IDName" ColumnName="IDName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="PhongTISModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="idSubject" ColumnName="idSubject" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exercises">
+            <EntityTypeMapping TypeName="PhongTISModel.Exercise">
+              <MappingFragment StoreEntitySet="Exercise">
+                <ScalarProperty Name="audio" ColumnName="audio" />
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="timer" ColumnName="timer" />
+                <ScalarProperty Name="part" ColumnName="part" />
+                <ScalarProperty Name="test" ColumnName="test" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="PhongTISModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+                <ScalarProperty Name="correct_answer" ColumnName="correct_answer" />
+                <ScalarProperty Name="answer_four" ColumnName="answer_four" />
+                <ScalarProperty Name="answer_three" ColumnName="answer_three" />
+                <ScalarProperty Name="answer_two" ColumnName="answer_two" />
+                <ScalarProperty Name="answer_one" ColumnName="answer_one" />
+                <ScalarProperty Name="name_question" ColumnName="name_question" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutUs1">
+            <EntityTypeMapping TypeName="PhongTISModel.AboutUs">
+              <MappingFragment StoreEntitySet="AboutUs">
+                <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="hide" ColumnName="hide" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="descAbout_5" ColumnName="descAbout_5" />
+                <ScalarProperty Name="descAbout_4" ColumnName="descAbout_4" />
+                <ScalarProperty Name="descAbout_3" ColumnName="descAbout_3" />
+                <ScalarProperty Name="descAbout_2" ColumnName="descAbout_2" />
+                <ScalarProperty Name="descAbout_1" ColumnName="descAbout_1" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

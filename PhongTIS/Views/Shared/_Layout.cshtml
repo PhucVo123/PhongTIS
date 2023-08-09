@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    @Styles.Render("~/Content/css/style.css")
+    @Styles.Render("~/Content/css/slick.css")
+    @Styles.Render("~/Content/css/default-theme.css")
+    @RenderSection("_header", false)
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+</head>
+<body>
+    <div class="header_nav">
+        <div class="grid">
+            <ul class="contact">
+                <li class="header_nav_item"><i class='fa fa-envelope-square fa-envelope-square-separate'> duyphongdao83@gmail.com</i></li>
+                <li class="header_nav_item"><i class='fa fa-phone'> 09-2345678</i></li>
+            </ul>
+            <div class="my_login">
+                @if (Session["UserName"] == null)
+                {
+                    <a class="student_login" href="/dang-nhap">
+                        Học viên đăng nhập
+                    </a>
+                    <div class="follow_us">
+                        Theo dõi chúng tôi
+                    </div>
+                    <div class="social_media">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-youtube-play"></a>
+                    </div>
+                }
+                else
+                {
+                    <p class="px-3 student_login">Xin chào, @Session["UserName"]</p>
+                    <a href="@Url.Action("Logout","Login")" class="btn btn-link pl-3 mb-3 follow_us text-decoration-none" type="submit">Log out</a>
+                }
+            </div>
+        </div>
+    </div>
+    @RenderBody();
+    <!-- Start footer -->
+    <footer id="mu-footer">
+        <!-- start footer top -->
+        <div class="mu-footer-top">
+            <div class="container">
+                <div class="mu-footer-top-area">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 footer-about wow fadeInUp">
+                            <div class="mu-footer-widget">
+                                <img class="logo-footer" src="https://azmind.com/demo/bootstrap-footer/template-3/assets/img/logo.png" alt="logo-footer" data-at2x="assets/img/logo.png">
+                                <p>
+                                    We are a young company always looking for new and creative ideas to help you with our products in your everyday work.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="mu-footer-widget">
+                                <h4>Contact</h4>
+                                <address>
+                                    <p>383 Võ Văn Tần lầu 6 phòng 603</p>
+                                    <p>Phone: (415) 453-1568 </p>
+                                    <p>Website: www.phongtis.com</p>
+                                    <p>Email: duyphongdao83@gmail.com</p>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            <div class="mu-footer-widget footer-social">
+                                <h4>Follow us</h4>
+                                <p>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end footer top -->
+        <!-- start footer bottom -->
+        <div class="mu-footer-bottom">
+            <div class="container">
+                <div class="mu-footer-bottom-area">
+                    <p>&copy; Tất cả bản quyền thuộc về <a href="http://www.markups.io/" rel="nofollow">PHONG TIS</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- end footer bottom -->
+    </footer>
+    <!-- End footer -->
+    @Scripts.Render("~/Content/js/jquery.min.js")
+    @Scripts.Render("~/Content/js/bootstrap.js")
+    @Scripts.Render("~/Content/js/waypoints.js")
+    @Scripts.Render("~/Content/js/jquery.counterup.js")
+    @Scripts.Render("~/Content/js/jquery.mixitup.js")
+    @Scripts.Render("~/Content/js/jquery.fancybox.pack.js")
+    @Scripts.Render("~/Content/js/slick.js")
+    @Scripts.Render("~/Content/js/custom.js")
+    @RenderSection("_footer", false)
+</body>
+</html>

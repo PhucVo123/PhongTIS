@@ -1,0 +1,17 @@
+﻿@model  IEnumerable<PhongTIS.Models.Menu>
+
+<div class="grid-nav">
+    <nav class="intro_navbar-list">
+        <ul class="intro_header_nav">
+            <li class="intro_header_nav_item"><h2 class="tenthuonghieu">PHONG TIS</h2></li>
+            <li class="intro_header_nav_item"><h5 class="camket">Đảm bảo cam kết đầu ra</h5></li>
+        </ul>
+        <ul class="intro_header_nav">
+            @foreach (var i in Model)
+            {
+                <li class="intro_header_nav_item"><a href="@i.meta" class="element_intro">@i.nameItem</a></li>
+            }
+        </ul>
+    </nav>
+</div>
+

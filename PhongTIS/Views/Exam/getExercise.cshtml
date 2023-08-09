@@ -1,0 +1,16 @@
+﻿@model  IEnumerable<PhongTIS.Models.Exercise>
+
+@{ var number = 5;}
+
+@foreach (var i in Model.Distinct())
+{
+    @Html.Raw(number++);
+    <div class="dropdown dropright">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            @i.part;
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">@i.test</a>
+        </div>
+    </div>
+}

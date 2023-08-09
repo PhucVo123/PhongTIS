@@ -1,0 +1,61 @@
+div.number-questions-and-timer
+{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 40px;
+}
+table, td
+        {
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 20px;
+            padding: 8px;
+            cursor: pointer;
+
+        }
+table, td.number-question:hover
+{
+    background-color: rgb(176, 175, 175);
+    border: 1px solid rgb(176, 175, 175);;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 8px;
+}
+table
+{
+    background-color: rgba(229, 229, 229, 0.927);
+    border-radius: 0%;
+    border-spacing: 15px;
+    border-collapse: separate;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+.timer
+{
+    color: black;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+.question
+{
+    display: block;
+    background-color: aqua;
+    color: rgba(0, 0, 0, 0.815);
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+}
+.next
+{
+    display: inline-block;
+    float: right;
+}
+.next:hover
+{
+    text-decoration: none;
+}

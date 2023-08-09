@@ -1,0 +1,138 @@
+#mu-abtus-counter {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.692),rgba(0, 0, 0, 0.938)), url(../img/hoc-tieng-anh-o-trung-tam-co-bang-khong.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline;
+    float: left;
+    padding: 100px 0;
+    width: 100%;
+    opacity: 0.5;
+  }
+  #mu-abtus-counter .mu-abtus-counter-area {
+    display: inline;
+    float: left;
+    width: 100%;
+  }
+  #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single {
+    border-right: 2px solid #888;
+    display: inline;
+    float: left;
+    text-align: center;
+    width: 100%;
+  }
+  #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single span {
+    color: #fff;
+    display: inline-block;
+    font-size: 50px;
+  }
+  #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single h4 {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+  #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single p {
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+#mu-abtus-counter .mu-abtus-counter-area .no-border {
+    border: none;
+}
+#mu-abtus-counter {
+    background-size: 100% 100%;
+    padding: 60px 0;
+  }
+
+  #mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single span {
+    font-size: 40px;
+  }
+
+#mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single h4 {
+    font-size: 30px;
+    margin-top: 15px;
+  }
+#mu-abtus-counter {
+    background-position: center center;
+    background-size: cover;
+}
+
+#mu-abtus-counter .mu-abtus-counter-area .mu-abtus-counter-single {
+    /* border: medium none; */
+    margin-bottom: 25px;
+}
+#mu-features {
+  display: inline;
+  float: left;
+  padding: 100px 0;
+  width: 100%;
+}
+#mu-features .mu-features-area {
+  display: inline;
+  float: left;
+  width: 100%;
+}
+#mu-features .mu-features-area .mu-features-content {
+  display: inline;
+  float: left;
+  margin-top: 50px;
+  width: 100%;
+}
+#mu-features .mu-features-area .mu-features-content .mu-single-feature {
+  display: inline;
+  float: left;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 0 10px;
+  width: 100%;
+}
+#mu-features .mu-features-area .mu-features-content .mu-single-feature span {
+  font-size: 25px;
+  padding: 10px 15px;
+}
+#mu-features .mu-features-area .mu-features-content .mu-single-feature h4 {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  position: relative;
+}
+#mu-features .mu-features-area .mu-features-content .mu-single-feature h4:after {
+  background-color: #333;
+  content: '';
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  width: 70px;
+  position: absolute;
+}
+#mu-features .mu-features-area .mu-features-content .mu-single-feature p {
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  line-height: 1.7;
+}
+#mu-features .mu-features-area .mu-features-content .mu-single-feature a {
+  border: 1px solid #888;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#mu-slide {
+    display: inline;
+    float: left;
+    padding: 100px 0;
+    width: 100%;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}

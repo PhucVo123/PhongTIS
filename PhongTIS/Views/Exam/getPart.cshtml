@@ -1,0 +1,14 @@
+﻿@model  List<PhongTIS.Models.Exercise>
+
+@foreach (var i in Model)
+{
+    <div class="dropdown dropright">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            @i.part
+        </button>
+        <div class="dropdown-menu">
+            @Html.Action("getTest", "Exam", new { part = i.part, id = i.CategoryID })
+        </div>
+    </div>
+}
+

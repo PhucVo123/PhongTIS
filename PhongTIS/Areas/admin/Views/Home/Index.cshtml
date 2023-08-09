@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Spinner Start -->
+<!--<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>-->
+<!-- Spinner End -->
+<div class="card-group" style="margin-top:15px">
+    <div class="card bg-primary" style="margin-right:10px; margin-left:10px">
+        <div class="card-body">
+            <a href="@Url.Action("Index", "Menus")"><i class="fa fa-plane text-white" style="font-size:27px;margin-right:15px" aria-hidden="true"></i><span class="card-text d-inline-block"><h3 class="font-weight-bold text-white">Quản lý Menu</h3></span></a>
+        </div>
+        <div class="card-footer bg-white pb-3"></div>
+    </div>
+    <div class="card bg-warning mr-3">
+        <div class="card-body">
+            <a href="@Url.Action("Index", "Students")"><i class="fa fa-plane mr-3 text-white" style="font-size: 27px; margin-right: 15px" aria-hidden="true"></i><span class="card-text d-inline-block"><h3 class="font-weight-bold text-white">Quản lý học viên</h3></span></a>
+        </div>
+        <div class="card-footer bg-white pb-3"></div>
+    </div>
+</div>
+<div class="card-group" style="margin-top:15px">
+    <div class="card bg-danger" style="margin-right: 10px; margin-left: 10px">
+        <div class="card-body">
+            <a href="@Url.Action("Index", "ScoreStudents")"><i class="fa fa-plane mr-3 text-white" style="font-size: 27px; margin-right: 15px" aria-hidden="true"></i><span class="card-text d-inline-block"><h3 class="font-weight-bold text-white">Quản lý điểm học viên </h3></span></a>
+        </div>
+        <div class="card-footer bg-white pb-3"></div>
+    </div>
+    <div class="card bg-danger mr-3">
+        <div class="card-body">
+            <a href="@Url.Action("Index", "Exercises")"><i class="fa fa-plane mr-3 text-white" style="font-size: 27px; margin-right: 15px" aria-hidden="true"></i><span class="card-text d-inline-block"><h3 class="font-weight-bold text-white">Quản lý bài tập</h3></span></a>
+        </div>
+        <div class="card-footer bg-white pb-3"></div>
+    </div>
+</div>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
