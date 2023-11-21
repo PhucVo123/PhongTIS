@@ -37,27 +37,17 @@
                         <td>
                             @i.order
                         </td>
-                        @if (errorAnswer.Length - 1 >= num)
+                                                @if (errorAnswer.Contains(arr[num]))
                         {
-                            if (errorAnswer[num] == arr[num])
-                            {
-                                <td style="background-color: red;font-weight: bold">
-                                    @Html.Raw(arr[num++])
-                                </td>
-                            }
-                            else
-                            {
-                                <td style="background-color: lawngreen;font-weight: bold">
-                                    @Html.Raw(arr[num++])
-                                </td>
-                            }
-
+                        <td style="background-color: red;font-weight: bold">
+                            @Html.Raw(arr[num++])
+                        </td>
                         }
                         else
                         {
-                            <td style="background-color: lawngreen;font-weight: bold">
-                                @Html.Raw(arr[num++])
-                            </td>
+                        <td style="background-color: lawngreen;font-weight: bold">
+                            @Html.Raw(arr[num++])
+                        </td>
                         }
                         <td>
                             @i.correct_answer
