@@ -5,7 +5,7 @@
     {
         @Html.AntiForgeryToken()
         <div class="exam-online" id="exams">
-            
+            @{ var count = 0;}
             @foreach (var i in Model)
             {
                 var id = i.order;
@@ -22,14 +22,14 @@
                     }
                 </div>
                 <div class="answers my-3">
-                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_one" onchange="getSelectedRadio()">
-                    <label for="select-ans">@i.answer_one</label><br>
-                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_two" onchange="getSelectedRadio()">
-                    <label for="select-ans">@i.answer_two</label><br>
-                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_three" onchange="getSelectedRadio()">
-                    <label for="select-ans">@i.answer_three</label><br>
-                    <input type="radio" id="select-ans" name="answer_@Html.Raw(id)"  value="@i.answer_four" onchange="getSelectedRadio()">
-                    <label for="select-ans">@i.answer_four</label>
+                      <input type="radio" id="select-ans @Html.Raw(++count)" name="answer_@Html.Raw(id)"  value="@i.answer_one" onchange="getSelectedRadio()">
+                      <label for="select-ans @Html.Raw(count)">@i.answer_one</label><br>
+                      <input type="radio" id="select-ans @Html.Raw(++count)" name="answer_@Html.Raw(id)"  value="@i.answer_two" onchange="getSelectedRadio()">
+                      <label for="select-ans @Html.Raw(count)">@i.answer_two</label><br>
+                      <input type="radio" id="select-ans @Html.Raw(++count)" name="answer_@Html.Raw(id)"  value="@i.answer_three" onchange="getSelectedRadio()">
+                      <label for="select-ans @Html.Raw(count)">@i.answer_three</label><br>
+                      <input type="radio" id="select-ans @Html.Raw(++count)" name="answer_@Html.Raw(id)"  value="@i.answer_four" onchange="getSelectedRadio()">
+                      <label for="select-ans @Html.Raw(count)">@i.answer_four</label>
                 </div>
             }
             <input type="submit" value="Submit" class="btn btn-default" />
