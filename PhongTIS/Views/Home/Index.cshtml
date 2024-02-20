@@ -1,0 +1,261 @@
+﻿@{
+    ViewBag.Title = "Trang chu";
+}
+
+<div class="introduce">
+    @{Html.RenderAction("getMenu", "Home");}
+</div>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Images/test.png" class="d-block w-100" alt="Class">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Images/test2.png" class="d-block w-100" alt="Teacher">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Images/test.png" class="d-block w-100" alt="Student">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+@{Html.RenderAction("getAbout", "Home");}
+
+<div class="text-courses">
+    <h1 class="tittle-course-phong-tis" style="color: rgb(17,10,92)"><b>Các khóa học tại PHONG TIS</b></h1>
+    <h6 class="tittle-course-desc-phong-tis mt-3">Tại <b>lớp học</b> PHONG TIS, chúng tôi đảm bảo học viên được học lại miễn phí nếu kết quả không như cam kết.</h6>
+</div>
+<div class="courses">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front flip-card-toeic">
+                <ul class="course-toeic">
+                    <li class="toeic-item"><i class="fa fa-graduation-cap" style="font-size:50px"></i></li>
+                    <li class="toeic-item"><h1>TOEIC 600+</h1></li>
+                </ul>
+            </div>
+            <div class="flip-card-back flip-card-toeic">
+                <ul class="description-course">
+                    <li class="description-course-item"><span class="description-course-item-detail font-weight-bold">Thời gian: </span>5 tháng</li>
+                    <li class="description-course-item"><span class="description-course-item-detail font-weight-bold">Đặc điểm của khóa học: </span>Khóa học được thiết kế dành riêng cho người đi học và người đi làm</li>
+                    <li class="description-course-item"><span class="description-course-item-detail"><b>Tài liệu học tập: </b>Miễn phí</span></li>
+                    <li class="description-course-item"><span class="description-course-item-detail"><b>Kết quả đạt được: </b>Đạt TOEIC 600+</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front flip-card-giaotiep">
+                <ul class="course-giaotiep">
+                    <li class="giaotiep-item"><i class="fa fa-graduation-cap" style="font-size:50px"></i></li>
+                    <li class="giaotiep-item"><h1>GIAO TIẾP</h1></li>
+                </ul>
+            </div>
+            <div class="flip-card-back flip-card-giaotiep">
+                <ul class="description-course">
+                    <li class="description-course-item"><span class="description-course-item-detail font-weight-bold">Thời gian: </span>7 tháng</li>
+                    <li class="description-course-item"><span class="description-course-item-detail font-weight-bold">Đặc điểm của khóa học: </span>Khóa học được thiết kế dành riêng cho người đi học và người đi làm</li>
+                    <li class="description-course-item"><span class="description-course-item-detail"><b>Tài liệu học tập: </b>Miễn phí</span></li>
+                    <li class="description-course-item"><span class="description-course-item-detail"><b>Kết quả đạt được: </b>Giao tiếp tiếng Anh lưu loát</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front flip-card-ielts">
+                <ul class="course-ielts">
+                    <li class="ielts-item"><i class="fa fa-graduation-cap" style="font-size:50px"></i></li>
+                    <li class="ielts-item"><h1>IELTS 6.0</h1></li>
+                </ul>
+            </div>
+            <div class="flip-card-back flip-card-ielts">
+                <ul class="description-course">
+                    <li class="description-course-item"><span class="description-course-item-detail font-weight-bold">Thời gian: </span>7 tháng</li>
+                    <li class="description-course-item"><span class="description-course-item-detail font-weight-bold">Đặc điểm của khóa học: </span>Khóa học được thiết kế dành riêng cho người đi học và người đi làm</li>
+                    <li class="description-course-item"><span class="description-course-item-detail"><b>Tài liệu học tập: </b>Miễn phí</span></li>
+                    <li class="description-course-item"><span class="description-course-item-detail"><b>Kết quả đạt được: </b>Đạt IELTS 6.0+</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <button class="button">Đăng ký ngay</button>
+</div>
+
+<!-- Start testimonial -->
+<section id="mu-testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-testimonial-area">
+                    <div id="mu-testimonial-slide" class="mu-testimonial-content">
+                        <!-- start testimonial single item -->
+                        <div class="mu-testimonial-item">
+                            <div class="mu-testimonial-quote">
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
+                                </blockquote>
+                            </div>
+                            <div class="mu-testimonial-img">
+                                <img src="~/Images/testimonial-1.png" alt="img">
+                            </div>
+                            <div class="mu-testimonial-info">
+                                <h4>John Doe</h4>
+                                <span>Happy Student</span>
+                            </div>
+                        </div>
+                        <!-- end testimonial single item -->
+                        <!-- start testimonial single item -->
+                        <div class="mu-testimonial-item">
+                            <div class="mu-testimonial-quote">
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
+                                </blockquote>
+                            </div>
+                            <div class="mu-testimonial-img">
+                                <img src="~/Images/testimonial-3.png" alt="img">
+                            </div>
+                            <div class="mu-testimonial-info">
+                                <h4>Rebaca Michel</h4>
+                                <span>Happy Parent</span>
+                            </div>
+                        </div>
+                        <!-- end testimonial single item -->
+                        <!-- start testimonial single item -->
+                        <div class="mu-testimonial-item">
+                            <div class="mu-testimonial-quote">
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem rerum soluta aperiam blanditiis obcaecati eveniet aliquam consequatur nobis eaque id.</p>
+                                </blockquote>
+                            </div>
+                            <div class="mu-testimonial-img">
+                                <img src="~/Images/testimonial-2.png" alt="img">
+                            </div>
+                            <div class="mu-testimonial-info">
+                                <h4>Stev Smith</h4>
+                                <span>Happy Student</span>
+                            </div>
+                        </div>
+                        <!-- end testimonial single item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End testimonial -->
+<!-- Start our teacher -->
+<section id="mu-our-teacher">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-our-teacher-area">
+                    <!-- begain title -->
+                    <div class="mu-title">
+                        <h2 style="color: rgb(17,10,92);"><b>Thành tích học viên</b></h2>
+                    </div>
+                    <p>Dù có nhiều bạn học xong chưa muốn thi lấy chứng chỉ TOEIC IELTS ngay, nhưng chúng tôi sẽ cố gắng cập nhật kết quả của học viên thường xuyên nhất để tạo động lực và chuyền cảm hứng cho các bạn học viên mới sau này! Hãy cùng theo dõi nhé!</p>
+
+                    <!-- end title -->
+                    <!-- begain our teacher content -->
+                    <div class="mu-our-teacher-content">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3  col-sm-6">
+                                <div class="mu-our-teacher-single">
+                                    <figure class="mu-our-teacher-img">
+                                        <img src="~/Images/teacher-01.png" alt="teacher img">
+                                    </figure>
+                                    <div class="mu-ourteacher-single-content">
+                                        <div class="row">
+                                            <div class="col-2 col-lg-2 col-sm-2 col-md-2 icon-star">
+                                                <i class="fa fa-star" style="font-size:36px;color:yellow"></i>
+                                            </div>
+                                            <div class="info-student col-10 col-lg-10 col-sm-10 col-md-10">
+                                                <h4>Brian Dean</h4>
+                                                <span>Đạt TOEIC 650 điểm</span>
+                                            </div>
+                                        </div>
+
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="mu-our-teacher-single">
+                                    <figure class="mu-our-teacher-img">
+                                        <img src="~/Images/teacher-01.png" alt="teacher img">
+                                    </figure>
+                                    <div class="mu-ourteacher-single-content">
+                                        <div class="row">
+                                            <div class="col-2 col-lg-2 col-sm-2 col-md-2 icon-star">
+                                                <i class="fa fa-star" style="font-size:36px;color:yellow"></i>
+                                            </div>
+                                            <div class="info-student col-10 col-lg-10 col-sm-10 col-md-10">
+                                                <h4>Brian Dean</h4>
+                                                <span>Đạt TOEIC 650 điểm</span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="mu-our-teacher-single">
+                                    <figure class="mu-our-teacher-img">
+                                        <img src="~/Images/teacher-01.png" alt="teacher img">
+                                    </figure>
+                                    <div class="mu-ourteacher-single-content">
+                                        <div class="row">
+                                            <div class="col-2 col-lg-2 col-sm-2 col-md-2 icon-star">
+                                                <i class="fa fa-star" style="font-size:36px;color:yellow"></i>
+                                            </div>
+                                            <div class="info-student col-10 col-lg-10 col-sm-10 col-md-10">
+                                                <h4>Brian Dean</h4>
+                                                <span>Đạt TOEIC 650 điểm</span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="mu-our-teacher-single">
+                                    <figure class="mu-our-teacher-img">
+                                        <img src="~/Images/teacher-01.png" alt="teacher img">
+                                    </figure>
+                                    <div class="mu-ourteacher-single-content">
+                                        <div class="row">
+                                            <div class="col-2 col-lg-2 col-sm-2 col-md-2 icon-star">
+                                                <i class="fa fa-star" style="font-size:36px;color:yellow"></i>
+                                            </div>
+                                            <div class="info-student col-10 col-lg-10 col-sm-10 col-md-10">
+                                                <h4>Brian Dean</h4>
+                                                <span>Đạt TOEIC 650 điểm</span>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End our teacher content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End our teacher -->

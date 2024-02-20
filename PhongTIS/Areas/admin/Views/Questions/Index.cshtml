@@ -1,0 +1,94 @@
+﻿@model IEnumerable<PhongTIS.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name_question)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.answer_one)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.answer_two)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.answer_three)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.answer_four)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correct_answer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hide)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datebegin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exercise.test)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name_question)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.answer_one)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.answer_two)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.answer_three)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.answer_four)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correct_answer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hide)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datebegin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exercise.test)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

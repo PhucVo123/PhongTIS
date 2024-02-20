@@ -1,0 +1,17 @@
+﻿@model List<PhongTIS.Models.Category>
+
+@foreach (var i in Model)
+{
+    <div class="content">
+        <div class="content_menu">
+            <div class="dropdown">
+                <button class="dropbtn btn-toeic"><a href="@ViewBag.meta/@i.meta/">@i.nameCategory</a></button>
+                <div class="dropdown-content">
+                    @Html.Action("getPart", "Exam", new { id = i.id })
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

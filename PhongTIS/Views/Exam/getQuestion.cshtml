@@ -1,0 +1,92 @@
+﻿@model List<PhongTIS.Models.Question>
+
+
+
+<div class="exam-online" id="exams">
+    @{ var count = 0;
+        var totalRecord = ViewBag.TotalRecord;
+        }
+    @foreach (var i in Model)
+    {
+        var id = i.order;
+        <div class="question ">
+
+            @if (i.img == null)
+            {
+                <span class="number">Question @Html.Raw(id): </span>
+                @i.name_question
+            }
+            else
+            {
+                <img src="~/Images/@i.img" class="img-fluid">
+            }
+        </div>
+        <div class="answers my-3">
+            <input type="radio" id="select-ans_@Html.Raw(++count)" name="test_@Html.Raw(id)" value="@i.answer_one" onchange="getSelectedRadio()">
+            <label for="select-ans_@Html.Raw(count)">@i.answer_one</label><br>
+            <input type="radio" id="select-ans_@Html.Raw(++count)" name="test_@Html.Raw(id)" value="@i.answer_two" onchange="getSelectedRadio()">
+            <label for="select-ans_@Html.Raw(count)">@i.answer_two</label><br>
+            <input type="radio" id="select-ans_@Html.Raw(++count)" name="test_@Html.Raw(id)" value="@i.answer_three" onchange="getSelectedRadio()">
+            <label for="select-ans_@Html.Raw(count)">@i.answer_three</label><br>
+            <input type="radio" id="select-ans_@Html.Raw(++count)" name="test_@Html.Raw(id)" value="@i.answer_four" onchange="getSelectedRadio()">
+            <label for="select-ans_@Html.Raw(count)">@i.answer_four</label>
+        </div>
+    }
+
+    @if (ViewBag.TotalPage > 1)
+    {
+        var pageDisplay = (int)ViewBag.MaxPage;
+        int totalPage = (int)ViewBag.TotalPage;
+        int currentPage = ((int)ViewBag.Page);
+
+        var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+        var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+        var link = "/bai-kiem-tra/toeic/" + ViewBag.metaExercise+"/"+ViewBag.idExercise;
+
+        <ul class="pagination">
+            @if (currentPage > ViewBag.First)
+            {
+                <li class="page-item"><a class="page-link" href="@link?page=@ViewBag.Prev">Previous</a></li>
+
+            }
+
+
+            @for (int i = startPageIndex; i <= endPageIndex; i++)
+            {
+                if (currentPage == i)
+                {
+
+                    <li class="page-item"><a class="page-link" href="@link?page=@i">@i</a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link" href="@link?page=@i">@i</a></li>
+                }
+            }
+
+            @if (currentPage < totalPage)
+            {
+
+                <li class="page-item"><a class="page-link" href="@link?page=@ViewBag.Next">Next</a></li>
+            }
+
+        </ul>
+
+    }
+    else
+    {
+        <span>Không có bản ghi nào</span>
+    }
+    @using (Html.BeginForm("DetailExam", "Exam", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        for(int i = 1; i<= totalRecord; i++)
+                {
+                    <input type="hidden" name="answer_@i" id="answer_@i"/>
+                }
+        <input type="submit" value="Submit" class="btn btn-success mb-3" />
+
+
+    }
+</div>

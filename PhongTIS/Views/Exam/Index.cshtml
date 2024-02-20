@@ -1,0 +1,28 @@
+﻿@model PhongTIS.Models.Category
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/css/hometest.css");
+<div class="container">
+    <div class="content">
+        <div class="content_menu">
+            <div class="dropdown">
+                <button class="dropbtn btn-toeic">@Model.nameCategory</button>
+                <div class="dropdown-content">
+                    @Html.Action("getPart", "Exam", new { meta = Model.meta })
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section _Footer
+{
+    <script>
+        localStorage.clear();
+        sessionStorage.clear();
+    </script>
+}

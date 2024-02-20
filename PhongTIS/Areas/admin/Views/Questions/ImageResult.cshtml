@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ImageResult";
+}
+
+<h2>Extracted Images</h2>
+@{ var count = 1;}
+@foreach (var imagePath in Session["ImagePartOne"] as List<String>)
+{
+    using (Html.BeginForm("CreatePartOne", "Questions", FormMethod.Post, new { enctype = "multipart/form-data", id = "form"+count }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <input type="hidden" name="img" id="img" value="@imagePath" />
+            <img src="~/Images/@imagePath" alt="Extracted Image" />
+        </div>
+        <div class="form-group">
+            <label for="correct_answer">Correct Answer:</label>
+            <input type="text" name="correct_answer" id="correct_answer" />
+        </div>
+        <button class="btn-success" type="submit">Submit</button>
+    }
+    <p></p>
+    <hr />
+    count += 1;
+}
+<div id="getQuestion">
+    @Html.Action("getNewQuestion", "Questions", new { id = Convert.ToInt32(Session["idExercise"]) })
+</div>

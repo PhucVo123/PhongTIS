@@ -1,0 +1,7 @@
+﻿@model List<PhongTIS.Models.Exercise>
+
+@foreach (var i in Model)
+{
+  <a class="dropdown-item" href="@i.Category.meta/@i.meta/@i.id">@i.test</a>
+}
+

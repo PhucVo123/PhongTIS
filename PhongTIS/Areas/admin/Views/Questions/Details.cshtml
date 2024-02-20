@@ -1,0 +1,107 @@
+﻿@model PhongTIS.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name_question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.answer_one)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer_one)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.answer_two)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer_two)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.answer_three)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer_three)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.answer_four)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.answer_four)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correct_answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correct_answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.meta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.meta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datebegin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datebegin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exercise.test)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exercise.test)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

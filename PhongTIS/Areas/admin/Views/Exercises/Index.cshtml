@@ -1,0 +1,56 @@
+﻿@model PhongTIS.Models.Category
+@using PhongTIS.Help
+@{
+    ViewBag.Title = "Danh sách bài tập";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container pt-4 px-4">
+    <div class="row">
+        <div class="col-sm-12 col-xl-12 col-md-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="bs-example" style="text-align:right; padding-bottom:10px;">
+                    <div class="btn-group">
+                        @Html.DropDownListFor(model => model.id, (SelectList)ViewBag.Category, "---- Tất cả khóa học ----", new { @class = "form-control", @id = "Category" })
+
+                    </div>
+                    <div class="btn-group">
+                        @Html.ActionLink(HttpUtility.HtmlDecode("Tạo mới &#43;"), "Create", null, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+                <div id="getExercise">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section _Footer
+{
+    <script>
+        $(document).ready(function () {
+            function getProduct() {
+                var CategoryId = $('#Category').val();
+                $.ajax({
+                    url: '@Url.Action("getExercise", "Exercises")',
+                    type: "GET",
+                    data: { id: CategoryId },
+                    success: function (data) {
+                        $("#getExercise").html(data);
+                    },
+                    error: function (data) {
+                        alert("something went wrong.");
+                    }
+                });
+            }
+            getProduct();
+            $("#Category").change(function () {
+                getProduct();
+            })
+           
+        });
+    </script>
+}
+
+

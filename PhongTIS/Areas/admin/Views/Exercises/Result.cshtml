@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Questions and Answers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var qaPair in Model)
+        {
+            <tr>
+                <td>@qaPair.Key</td>
+                <td>@qaPair.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

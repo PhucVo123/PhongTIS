@@ -1,0 +1,117 @@
+﻿@model PhongTIS.Models.Question
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Upload PDF File</h2>
+
+@using (Html.BeginForm("ExtractImages", "Questions", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="file">Choose a PDF file:</label>
+        <input type="file" name="file" id="file" accept=".pdf" required />
+    </div>
+
+    <button type="submit">Process PDF</button>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Questions", FormMethod.Post, new { name = "createForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Question</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Question", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name_question, new { htmlAttributes = new { @id = "nameQuestion", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name_question, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group pt-4">
+            @Html.Label("Hình", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="img" id="img" accept=".jpg, .png, .jpeg, .gif, .bmp" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Answer One", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.answer_one, new { htmlAttributes = new { @id = "answerOne", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.answer_one, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Answer Two", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.answer_two, new { htmlAttributes = new { @id = "answerTwo", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.answer_two, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Answer Three", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.answer_three, new { htmlAttributes = new { @id = "answerThree", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.answer_three, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Answer Four", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.answer_four, new { htmlAttributes = new { @id = "answerFour", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.answer_four, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Correct Answer", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.correct_answer, new { htmlAttributes = new { @id = "correctAnswer", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.correct_answer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Submit" id="addBtn" class="btn btn-primary" onclick="submitForm()" />
+            </div>
+        </div>
+    </div>
+}
+<div id="getQuestion">
+    @Html.Action("getNewQuestion", "Questions", new { id = Convert.ToInt32(Session["idExercise"]) })
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+
+    function submitForm() {
+        // Get the first form with the name
+        // Hopefully there is only one, but there are more, select the correct index
+        var frm = document.getElementsByName('createForm')[0];
+        frm.submit(); // Submit
+        frm.reset();  // Reset
+        event.preventDefault(); // Prevent page refresh
+    }
+</script>

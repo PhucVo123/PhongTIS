@@ -1,0 +1,71 @@
+﻿@model List<PhongTIS.Models.Question>
+<div class="col-md-4 mt-5 questions-and-timer">
+    <div class="number-questions-and-timer">
+        <table id="table-number-question">
+            <tbody>
+                <tr>
+                    @foreach (var i in Model)
+                    {
+                        var id = "num" + i.order;
+                        if (i.order <= 5)
+                        {
+                            <td class="number-question question-page1" id=@Html.Raw(id) onclick="scrollToQuesFirst(event)">
+                                @i.order
+                            </td>
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+                <tr>
+                    @foreach (var i in Model)
+                    {
+                        var id = "num" + i.order;
+                        if (i.order > 5 && i.order <= 10)
+                        {
+                            <td class="number-question question-page2" id=@Html.Raw(id) onclick="scrollToQuesNextFive(event)">
+                                @i.order
+                            </td>
+                        }
+                        if (i.order <= 5)
+                        {
+                            continue;
+                        }
+                        if (i.order > 10)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+                <tr>
+                    @foreach (var i in Model)
+                    {
+                        var id = "num" + i.order;
+                        if (i.order > 10 && i.order <= 15)
+                        {
+                            <td class="number-question question-page1" id=@Html.Raw(id) onclick="scrollToQuesFirst(event)">
+                                @i.order
+                            </td>
+                        }
+                        if (i.order <= 10)
+                        {
+                            continue;
+                        }
+                        if (i.order > 15)
+                        {
+                            break;
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="timer" id="timer" colspan="5">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
