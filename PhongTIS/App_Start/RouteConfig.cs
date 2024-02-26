@@ -19,7 +19,7 @@ namespace PhongTIS
              {
                    {"type","khoa-hoc-phong-tis" }
              },
-             namespaces: new[] { "PhongTIS.Controllers" })
+             namespaces: new[] { "PhongTIS.Controllers" });
 
             routes.MapRoute("About", "{type}",
              new { controller = "Home", action = "About" },
